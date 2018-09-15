@@ -37,4 +37,42 @@ public class Carta {
 		}
 		return false;
 	}
+	public int getIdCarta() {
+		return idCarta;
+	}
+	public void setIdCarta(int idCarta) {
+		this.idCarta = idCarta;
+	}
+	public PaloEnum getPalo() {
+		return palo;
+	}
+	public void setPalo(PaloEnum palo) {
+		this.palo = palo;
+	}
+	public int getNumero() {
+		return numero;
+	}
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+	public int getOrdenEnJuego() {
+		return ordenEnJuego;
+	}
+	public void setOrdenEnJuego(int ordenEnJuego) {
+		this.ordenEnJuego = ordenEnJuego;
+	}
+	public int getOrdenEnMazo() {
+		return ordenEnMazo;
+	}
+	public void setOrdenEnMazo(int ordenEnMazo) {
+		this.ordenEnMazo = ordenEnMazo;
+	}
+	public boolean isDisponible() {
+		return disponible;
+	}
+	public void setDisponible(boolean disponible) {
+		this.disponible = disponible;
+	}
+	
+	
 }
