@@ -1,0 +1,12 @@
+package negocio;
+
+public class Carta {
+	
+	private int idCarta;
+	private PaloEnum palo;
+	private int numero; 
+	private int ordenEnJuego;
+	private int ordenEnMazo;
+	private boolean disponible;
+	
+}
