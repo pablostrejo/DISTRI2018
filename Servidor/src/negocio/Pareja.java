@@ -52,7 +52,7 @@ public class Pareja {
 			this.categoria=jugador1.getCategoria();
 		}
 			break;
-		case experto:{
+		case "experto":{
 			if (jugador2.getCategoria() != "master") {
 				this.categoria=jugador1.getCategoria();
 			} else {
@@ -60,7 +60,7 @@ public class Pareja {
 			}
 		}
 			break;
-		case calificado:{
+		case "calificado":{
 			if (jugador2.getCategoria() != "master" && "experto") {
 				this.categoria=jugador1.getCategoria();
 			} else {
