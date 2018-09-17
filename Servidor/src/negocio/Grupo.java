@@ -1,5 +1,7 @@
 package negocio;
 
+import java.util.List;
+
 public class Grupo {
 	
 	private int idGrupo;
@@ -11,7 +13,8 @@ public class Grupo {
 	private Ranking ranking;
 	
 	public boolean hayJugadoresSuficientes() {
-		
+		// TODO
+		return false;
 	}
 	
 	public boolean sosGrupo(String nombre) {
