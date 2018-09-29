@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/monterto/Desktop/Librerias JAR/antlr-2.7.6.jar"/>
 	<classpathentry kind="lib" path="C:/Users/monterto/Desktop/Librerias JAR/commons-collections-3.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/monterto/Desktop/Librerias JAR/commons-logging-1.1.1.jar"/>
@@ -16,6 +17,8 @@
 	<classpathentry kind="lib" path="C:/Users/monterto/Desktop/Librerias JAR/servlet-api.jar"/>
 	<classpathentry kind="lib" path="C:/Users/monterto/Desktop/Librerias JAR/slf4j-api-1.5.6.jar"/>
 	<classpathentry kind="lib" path="C:/Users/monterto/Desktop/Librerias JAR/slf4j-simple-1.5.6.jar"/>
+=======
+>>>>>>> 54146119d82b1818807d37b6b9542e69e72523d7
 	<classpathentry combineaccessrules="false" kind="src" path="/Repositorio"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

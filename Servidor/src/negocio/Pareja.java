@@ -37,7 +37,9 @@ public class Pareja {
 	public String obtenerCategoria() {
 		return this.categoria.toString();
 	}
-	
+	public Pareja(){
+		
+	}
 	public Pareja(Jugador jugador1, Jugador jugador2) {
 		super();
 		this.jugador1 = jugador1;
@@ -52,16 +54,16 @@ public class Pareja {
 			this.categoria=jugador1.getCategoria();
 		}
 			break;
-		case experto:{
-			if (jugador2.getCategoria() != "master") {
+		case "experto":{
+			if (!jugador2.getCategoria().toString().equalsIgnoreCase("master")) {
 				this.categoria=jugador1.getCategoria();
 			} else {
 				this.categoria=jugador2.getCategoria();
 			}
 		}
 			break;
-		case calificado:{
-			if (jugador2.getCategoria() != "master" && "experto") {
+		case "calificado":{
+			if (!jugador2.getCategoria().toString().equalsIgnoreCase("master") && !jugador2.getCategoria().toString().equalsIgnoreCase("experto")) {
 				this.categoria=jugador1.getCategoria();
 			} else {
 				this.categoria=jugador2.getCategoria();
