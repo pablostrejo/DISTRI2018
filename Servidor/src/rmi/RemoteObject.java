@@ -3,9 +3,9 @@ package rmi;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-import interfaces.InterfazRemota;
+import rmi.RemoteInterface;
 
-public class RemoteObject extends UnicastRemoteObject implements InterfazRemota {
+public class RemoteObject extends UnicastRemoteObject implements RemoteInterface {
 	
 	/**
 	 * 
