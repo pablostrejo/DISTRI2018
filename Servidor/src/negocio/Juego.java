@@ -16,7 +16,10 @@ public class Juego {
 		this.tipoJuego = tipoJuego;
 		this.partidas = partidas;
 	}
-
+	public Juego(Pareja pareja1, Pareja pareja2, String modalidad ){
+		
+	}
+	
 	public int getIdJuego() {
 		return idJuego;
 	}
