@@ -10,6 +10,20 @@ public class Juego {
 	private ModalidadEnum tipoJuego;
 	private List<Partida> partidas;
 	
+<<<<<<< HEAD
+=======
+	private void registrarMovimiento(Jugador jugador, Movimiento movimiento){
+		// TODO
+	}
+	private List<MovimientoDTO>obtenerMovimientosPosibles(Jugador jugador){
+		// TODO
+		return null;
+	}
+	private boolean terminoJuego(){
+		// TODO 
+		return false;
+	}	
+>>>>>>> 899c6911db5a49d5414e74c4700d541cba287421
 	public Juego(int idJuego, ModalidadEnum tipoJuego, List<Partida> partidas) {
 		super();
 		this.idJuego = idJuego;
@@ -58,8 +72,12 @@ public class Juego {
 		return null;
 	}
 	
+<<<<<<< HEAD
 	private boolean terminoJuego(){
 		// TODO 
 		return false;
 	}	
+=======
+
+>>>>>>> 899c6911db5a49d5414e74c4700d541cba287421
 }
