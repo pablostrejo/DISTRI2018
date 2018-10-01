@@ -1,79 +1,46 @@
 package entities;
-
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 import dto.*;
 
+@Entity
+@Table(name = "Bazas")
 public class BazaEntity {
 
+	@Id
+	@Column (name = "id_baza", nullable = false)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int idBaza;
+	
+	@Column (name = "numeroBaza", nullable = false)  // lo hacemos @Transient ??
 	private int numeroBaza;
+	
+	@OneToMany (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn (name = "id_baza")
 	private List<MovimientoEntity> movimientosBaza;
+	
+	@OneToOne /* fetch = FetchType.EAGER)*/
+	@JoinColumn (name = "id_jugador")
 	private JugadorEntity ganadorBaza;
+	
+	@Transient // esta annotation hace que no se persista este atributo.
 	private List<JugadorEntity> ordenJugador;
+	
+	@Transient // esta annotation hace que no se persista este atributo.
 	private int cantCartasTiradas;
+	
+	@Transient // ESTA BIEN? hago que solo lo persista JUEGO
 	private PuntosParejaEntity puntosPareja1;
+
+	@Transient // ESTA BIEN? hago que solo lo persista JUEGO
 	private PuntosParejaEntity puntosPareja2;
+	
+	@Transient
 	private JugadorEntity jugadorActivo;
 	
-	public void registrarMovimiento(JugadorEntity jugador, MovimientoDTO movimiento){ //DTO o negocio?
-		// TODO
-	}
-	
-	private boolean seJugoCarta(MovimientoDTO movimiento ){
-		// TODO
-		return false;
-	}
-	
-	private void actualizarPuntajes(){
-		
-	}
-	
-	private boolean necesitoRespuesta(){
-		// TODO
-		return false;
-	}
-	
-	private JugadorEntity quienResponde(){
-		JugadorEntity jugResp = new JugadorEntity();
-		// TODO
-		return jugResp;
-	}
-	
-	private List<MovimientoDTO> obtenerMovimientosPosibles(JugadorDTO jugador){
-		List<MovimientoDTO> movPos = new ArrayList<MovimientoDTO>();
-		// TODO
-		return movPos;
-	}
-	
-	/*private Jugador cerrarBaza(){
-		Jugador jugCerr = new Jugador();
-		// TODO
-		return jugCerr;
-	}*/ // seria igual que quienGano
-	
-	private boolean terminoBaza(){
-		if(cantCartasTiradas == 4){
-			return true;
-		}
-		else{
-			if(puntosPareja1.getIdPuntosPareja() >= 30 || puntosPareja2.getIdPuntosPareja() >= 30){
-				return true;
-			}
-			if(movimientosBaza.size()>0){
-				MovimientoEntity movi = movimientosBaza.get(movimientosBaza.size()-1);
-				if (!movi.sosTipoCarta()){
-					EnviteEntity envi1 = (EnviteEntity) movi;
-					if(envi1.getTipoEnvite().toString().equalsIgnoreCase("noQuieroTruco")){
-						return true;
-					}
-				}
-			}
-		}
-		return false;
-	}
-	
+
 	public int getIdBaza() {
 		return idBaza;
 	}
