@@ -15,7 +15,7 @@ public class BusinessDelegate {
 	
 	
 	
-	public BusinessDelegate() {
+	public class BusinessDelegate() {
 		
 		
 		boolean existeApodoMail(String apodo, String mail){
