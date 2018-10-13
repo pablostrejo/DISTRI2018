@@ -2,8 +2,6 @@ package negocio;
 
 import java.util.List;
 
-import dto.*;
-
 public class Juego {
 	
 	private int idJuego;
