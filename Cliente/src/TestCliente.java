@@ -15,7 +15,7 @@ public class TestCliente {
 		Scanner scan = new Scanner(System.in);
 		
 		System.out.println("1- Conectarse al servidor.");
-		System.out.println("2- Regstrarse.");
+		System.out.println("2- Registrarse.");
 		System.out.println("3- Login.");
 		System.out.println("4-  ...");
 		System.out.println("5- Salir.");
@@ -35,7 +35,7 @@ public class TestCliente {
 			break;
 		case 2:
 			try {
-				
+				registrarse();
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
@@ -89,5 +89,16 @@ public class TestCliente {
 	        }
 	 }
 	
+	private static void registrarse() {
+		System.out.print("Ingresá tu nombre: ");
+        Scanner scanner = new Scanner(System. in);
+        String nombre = scanner.nextLine();
+        System.out.print("Ingresá tu contraseña: ");
+        String password = scanner. nextLine();
+        
+        System.out.println(nombre + password);
+        
+		
+	}	
 
 }
