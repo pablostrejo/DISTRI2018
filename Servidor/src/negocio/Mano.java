@@ -24,15 +24,15 @@ public class Mano {
 	public void actualizarOrdenJuego(){
 		// TODO
 	}
-	private void registrarMovimiento(Jugador jugador, MovimientoDTO movimiento){
+	private void registrarMovimiento(Jugador jugador, Movimiento movimiento){
 		// TODO
 	}
-	private List<MovimientoDTO> obtenerMovimientosPosibles(JugadorDTO jugador){
-		List<MovimientoDTO> movPos = new ArrayList<MovimientoDTO>();
+	private List<Movimiento> obtenerMovimientosPosibles(Jugador jugador){
+		List<Movimiento> movPos = new ArrayList<Movimiento>();
 		// TODO
 		return movPos;
 	}
-	private List<MovimientoDTO> obtenerPuntosEnvido(){ // NO entiendo por que devuelve una colection de MovDTO
+	private List<Movimiento> obtenerPuntosEnvido(){ // NO entiendo por que devuelve una colection de MovDTO
 		// TODO
 		return null;
 	}

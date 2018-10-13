@@ -2,12 +2,30 @@ package entities;
 
 import java.util.List;
 
+import javax.persistence.*;
+
+@Entity
+@Table (name = "Rankings")
 public class RankingEntity {
 	
+	@Id
+	@Column (name = "id_ranking")
+	@GeneratedValue
+	private int idRanking;
+	
+	@OneToMany (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn (name = "id_ranking")
+	private List<ItemRankingEntity> items;
+	
+	/* PST: CREO QUE NO SE PUEDE TENER MISMO TIPOS PERO DISTINTOS VALORES ASI QUE
+	 * DEBERIAMOS DEJAR 1 SOLO Y QUE CUANDO SE HAGA CADA GET DE CATEGORIA LOS SEPARAMOS.
 	private List<ItemRankingEntity> catNovato;
+	
 	private List<ItemRankingEntity> catCalificado;
+	
 	private List<ItemRankingEntity> catExperto;
-	private List<ItemRankingEntity> catMaster;
+	
+	private List<ItemRankingEntity> catMaster; */
 	
 	public void actualizarRanking(List<JugadorEntity> jugadores) {
 		
@@ -43,6 +61,23 @@ public class RankingEntity {
 		return null;
 	}
 
+	public int getIdRanking() {
+		return idRanking;
+	}
+
+	public void setIdRanking(int idRanking) {
+		this.idRanking = idRanking;
+	}
+
+	public List<ItemRankingEntity> getItems() {
+		return items;
+	}
+
+	public void setItems(List<ItemRankingEntity> items) {
+		this.items = items;
+	}
+
+	/*
 	public List<ItemRankingEntity> getCatNovato() {
 		return catNovato;
 	}
@@ -74,5 +109,5 @@ public class RankingEntity {
 	public void setCatMaster(List<ItemRankingEntity> catMaster) {
 		this.catMaster = catMaster;
 	}
-
+	 */
 }

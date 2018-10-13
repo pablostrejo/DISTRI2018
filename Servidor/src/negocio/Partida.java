@@ -11,10 +11,10 @@ public class Partida {
 	private PuntosPareja puntosPareja1; 
 	private PuntosPareja puntosPareja2;
 	
-	private void registrarMovimiento(Jugador jugador, MovimientoDTO movimiento){
+	private void registrarMovimiento(Jugador jugador, Movimiento movimiento){
 		// TODO
 	}
-	private List<MovimientoDTO> obtenerMovimientosPosibles(JugadorDTO jugador){
+	private List<Movimiento> obtenerMovimientosPosibles(Jugador jugador){
 		// TODO
 		return null;
 	}

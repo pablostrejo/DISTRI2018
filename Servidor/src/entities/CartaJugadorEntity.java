@@ -1,40 +1,26 @@
 package entities;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "CartasJugador")
 public class CartaJugadorEntity {
 	
+	@Id
+	@Column(name = "id_cartaJugador", nullable = false)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int idCartaJugador;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_jugador")
 	private JugadorEntity jugador;
+	
+	@ManyToOne /* fetch = FetchType.EAGER) */
+	@JoinColumn(name = "id_carta")
 	private CartaEntity carta;
+	
+	@Column(columnDefinition = "bit")
 	private boolean disponible;
 	
-	public boolean sosCarta(CartaEntity carta){
-		if (this.carta.getIdCarta() == carta.getIdCarta() & 
-			this.carta.getPalo().toString().equalsIgnoreCase(carta.getPalo().toString()) &
-			this.carta.getNumero() == carta.getNumero() &
-			this.carta.getOrdenEnJuego() == carta.getOrdenEnJuego() &
-			this.carta.getOrdenEnMazo() == carta.getOrdenEnMazo()){
-				return true;
-		}
-		return false;
-	}
-	
-	public boolean sosMenor(CartaEntity carta){
-		if(this.carta.getOrdenEnJuego() < carta.getOrdenEnJuego()){
-			return true;
-		}
-		return false;
-	}
-	public boolean sosMayor(CartaEntity carta){
-		if(this.carta.getOrdenEnJuego() > carta.getOrdenEnJuego()){
-			return true;
-		}
-		return false;
-	}
-	public boolean sosIgual(CartaEntity carta){
-		if(this.carta.getOrdenEnJuego() == carta.getOrdenEnJuego()){
-			return true;
-		}
-		return false;
-	}	
 	public JugadorEntity getJugador() {
 		return jugador;
 	}
@@ -52,5 +38,11 @@ public class CartaJugadorEntity {
 	}
 	public void setDisponible(boolean disponible) {
 		this.disponible = disponible;
+	}
+	public int getIdCartaJugador() {
+		return idCartaJugador;
+	}
+	public void setIdCartaJugador(int idCartaJugador) {
+		this.idCartaJugador = idCartaJugador;
 	}
 }

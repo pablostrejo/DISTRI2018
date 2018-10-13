@@ -1,13 +1,28 @@
 package entities;
 
+import javax.persistence.*;
+
+import negocio.CategoriaEnum;
+
+@Entity
+@Table(name = "Parejas")
 public class ParejaEntity {
 	
+	@Id
+	@Column (name = "id_baza", nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idPareja;
-	private CategoriaEnum categoria;
-	private JugadorEntity jugador1;
-	private JugadorEntity jugador2;
 	
-	//////////////////////////////////////////////////////////////
+	@Column(columnDefinition = "tinyint")
+	private CategoriaEnum categoria;
+	
+	@ManyToOne (fetch = FetchType.EAGER)
+	@JoinColumn (name = "id_jugador1")
+	private JugadorEntity jugador1;
+	
+	@ManyToOne (fetch = FetchType.EAGER)
+	@JoinColumn (name = "id_jugador2")
+	private JugadorEntity jugador2;
 	
 	public int getIdPareja() {
 		return idPareja;
@@ -40,42 +55,4 @@ public class ParejaEntity {
 	public ParejaEntity(){
 		
 	}
-	public ParejaEntity(JugadorEntity jugador1, JugadorEntity jugador2) {
-		super();
-		this.jugador1 = jugador1;
-		this.jugador2 = jugador2;
-		
-		// En progreso, el calculo de la cateogría:
-		String cat1 = jugador1.getCategoria().toString();
-		String cat2 = jugador2.getCategoria().toString();
-		
-		switch (cat1) {
-		case "master":{
-			this.categoria=jugador1.getCategoria();
-		}
-			break;
-		case "experto":{
-			if (!jugador2.getCategoria().toString().equalsIgnoreCase("master")) {
-				this.categoria=jugador1.getCategoria();
-			} else {
-				this.categoria=jugador2.getCategoria();
-			}
-		}
-			break;
-		case "calificado":{
-			if (!jugador2.getCategoria().toString().equalsIgnoreCase("master") && !jugador2.getCategoria().toString().equalsIgnoreCase("experto")) {
-				this.categoria=jugador1.getCategoria();
-			} else {
-				this.categoria=jugador2.getCategoria();
-			}
-		}
-			break;
-		default:{
-			this.categoria=jugador2.getCategoria();
-		}
-			break;
-		}
-	}
-	
-
 }

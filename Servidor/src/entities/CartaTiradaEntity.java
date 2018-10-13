@@ -1,18 +1,17 @@
 package entities;
 
+import javax.persistence.*;
+
+@Entity
+@DiscriminatorValue("carta")
 public class CartaTiradaEntity extends MovimientoEntity{
 
+	@OneToOne (fetch = FetchType.EAGER)
+	@JoinColumn (name = "id_cartaJugador")
 	private CartaJugadorEntity carta;
+	
+	@Column(columnDefinition = "bit")
 	private boolean alMazo;
-
-	public int calcularPuntosEnvite() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public boolean sosTipoCarta() {
-		return true;
-	}
 
 	public CartaJugadorEntity getCarta() {
 		return carta;

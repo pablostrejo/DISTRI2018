@@ -1,42 +1,33 @@
 package entities;
 
+import javax.persistence.*;
+
+import negocio.PaloEnum;
+
+@Entity
+@Table(name = "Cartas")
 public class CartaEntity {
 	
+	@Id
+	@Column(name = "id_carta", nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idCarta;
+	
+	@Column(columnDefinition = "tinyint")
 	private PaloEnum palo;
+	
+	@Column
 	private int numero; 
+	
+	@Column(name = "ordenEnJuego")
 	private int ordenEnJuego;
+	
+	@Column
 	private int ordenEnMazo;
+	
+	@Transient // PST: el estado es solo para saber si se repartió o no en el mazo.
 	private boolean disponible;
 	
-	public boolean sosCarta(CartaEntity carta){
-		if (this.idCarta == carta.idCarta & 
-			this.palo.toString().equalsIgnoreCase(carta.palo.toString()) &
-			this.numero == carta.numero &
-			this.ordenEnJuego == carta.ordenEnJuego &
-			this.ordenEnMazo == carta.ordenEnMazo){
-				return true;
-		}
-		return false;
-	}
-	public boolean sosMenor(CartaEntity carta){
-		if(this.ordenEnJuego < carta.ordenEnJuego){
-			return true;
-		}
-		return false;
-	}
-	public boolean sosMayor(CartaEntity carta){
-		if(this.ordenEnJuego > carta.ordenEnJuego){
-			return true;
-		}
-		return false;
-	}
-	public boolean sosIgual(CartaEntity carta){
-		if(this.ordenEnJuego == carta.ordenEnJuego){
-			return true;
-		}
-		return false;
-	}
 	public int getIdCarta() {
 		return idCarta;
 	}
@@ -67,12 +58,10 @@ public class CartaEntity {
 	public void setOrdenEnMazo(int ordenEnMazo) {
 		this.ordenEnMazo = ordenEnMazo;
 	}
-	public boolean isDisponible() {
+	public boolean getDisponible() {
 		return disponible;
 	}
 	public void setDisponible(boolean disponible) {
 		this.disponible = disponible;
-	}
-	
-	
+	}	
 }

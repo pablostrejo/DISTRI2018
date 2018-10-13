@@ -1,49 +1,49 @@
 package entities;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import dto.*;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "Manos")
 public class ManoEntity {
 	
+	@Id
+	@Column (name = "id_mano", nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idMano;
+	
+	@OneToOne /* fetch = FetchType.EAGER)*/
+	@JoinColumn (name = "id_mano")
 	private MazoEntity mazo;
-	private EnviteEntity enviteActual; // quien lo modifica? 
+	
+	@Transient
+	private EnviteEntity enviteActual; // PST: quien lo modifica? 
+	
+	@OneToMany (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn (name = "id_mano")
 	private List<CartaJugadorEntity> cartaJugador;
+	
+	@OneToMany (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn (name = "id_mano")
 	private List<BazaEntity> bazas;
+	
+	@Transient
 	private List<JugadorEntity> ordenJuego;
+	
+	@Transient
 	private List<Integer> puntosEnvido;
+	
+	@Transient
 	private int puntajeTruco;
+	
+	@Transient
 	private PuntosParejaEntity PuntosPareja1;
+	
+	@Transient
 	private PuntosParejaEntity PuntosPareja2;
 	
-	public void repartirCartas(){
-		// TODO
-	}
-	public void actualizarOrdenJuego(){
-		// TODO
-	}
-	private void registrarMovimiento(JugadorEntity jugador, MovimientoDTO movimiento){
-		// TODO
-	}
-	private List<MovimientoDTO> obtenerMovimientosPosibles(JugadorDTO jugador){
-		List<MovimientoDTO> movPos = new ArrayList<MovimientoDTO>();
-		// TODO
-		return movPos;
-	}
-	private List<MovimientoDTO> obtenerPuntosEnvido(){ // NO entiendo por que devuelve una colection de MovDTO
-		// TODO
-		return null;
-	}
-	private boolean terminoMano(){
-		// TODO 
-		return false;
-	}
-	private boolean seCantoTruco(){
-		// TODO
-		return false;
-	}
+	
 	public int getIdMano() {
 		return idMano;
 	}

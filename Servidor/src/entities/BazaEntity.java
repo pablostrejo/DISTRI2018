@@ -11,10 +11,10 @@ public class BazaEntity {
 
 	@Id
 	@Column (name = "id_baza", nullable = false)
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idBaza;
 	
-	@Column (name = "numeroBaza", nullable = false)  // lo hacemos @Transient ??
+	@Column (name = "numeroBaza", nullable = false)
 	private int numeroBaza;
 	
 	@OneToMany (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -31,16 +31,15 @@ public class BazaEntity {
 	@Transient // esta annotation hace que no se persista este atributo.
 	private int cantCartasTiradas;
 	
-	@Transient // ESTA BIEN? hago que solo lo persista JUEGO
+	@Transient // PST: hago que solo lo persista JUEGO?
 	private PuntosParejaEntity puntosPareja1;
 
-	@Transient // ESTA BIEN? hago que solo lo persista JUEGO
+	@Transient // PST: hago que solo lo persista JUEGO?
 	private PuntosParejaEntity puntosPareja2;
 	
 	@Transient
 	private JugadorEntity jugadorActivo;
 	
-
 	public int getIdBaza() {
 		return idBaza;
 	}

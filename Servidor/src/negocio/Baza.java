@@ -78,11 +78,11 @@ public class Baza {
 		return movPos;
 	}
 	
-	public void registrarMovimiento(Jugador jugador, MovimientoDTO movimiento){ //DTO o negocio?
+	public void registrarMovimiento(Jugador jugador, Movimiento movimiento){ //DTO o negocio?
 		// TODO
 	}
 	
-	private boolean seJugoCarta(MovimientoDTO movimiento ){
+	private boolean seJugoCarta(Movimiento movimiento ){
 		// TODO
 		return false;
 	}
@@ -102,8 +102,8 @@ public class Baza {
 		return jugResp;
 	}
 	
-	private List<MovimientoDTO> obtenerMovimientosPosibles(JugadorDTO jugador){
-		List<MovimientoDTO> movPos = new ArrayList<MovimientoDTO>();
+	private List<Movimiento> obtenerMovimientosPosibles(Jugador jugador){
+		List<Movimiento> movPos = new ArrayList<Movimiento>();
 		// TODO
 		return movPos;
 	}

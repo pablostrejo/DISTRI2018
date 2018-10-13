@@ -1,75 +1,52 @@
 package entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import negocio.CategoriaEnum;
+import negocio.EstadoEnum;
+
+@Entity
+@Table(name = "Jugadores")
 public class JugadorEntity {
 
+	@Id
+	@Column (name = "id_jugador", nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idJugador;
+	
+	@Column
 	private String apodo;
+	
+	@Column
 	private String mail;
+	
+	@Column
 	private String password;
+	
+	@Column(columnDefinition = "tinyint")
 	private CategoriaEnum categoria;
+	
+	@Column
 	private int puntos;
+
+	@Column
 	private int partidasJugadas;
+	
+	@Column
 	private int partidasGanadas;
+	
+	@Column(columnDefinition = "tinyint")
 	private EstadoEnum estado;
 	
 	public JugadorEntity(){
 		
 	}
 	
-	public boolean sosApodoMail(String apodo, String mail){
-		if(this.apodo.equalsIgnoreCase(apodo) & (this.mail.equalsIgnoreCase(mail))){
-			return true;
-		}
-		return false;
-	}
-	public boolean passwordOK(String pass){
-		if(this.password.equalsIgnoreCase(pass)){
-			return true;
-		}
-		return false;
-	}
-	public boolean disponibleParaJugar(){
-		if(this.estado.toString().equalsIgnoreCase("conectado")){
-			return true;
-		}
-		return false;
-	}
-	public void actualizarCategoria(){
-		/*La categorización de los jugadores la realiza el sistema en base a la cantidad de partidas jugadas y la de ganadas. Los jugadores pueden subir o bajar de categoría según los resultados obtenidos, pero nunca pueden volver a la categoría de novato.
-		Cuando un jugador se registra, se incluye en la categoría de “novato”.
-		Cuando un jugador jugo más de 100 partidas, posee más de 500 puntos y un promedio de 5 o más, pasa a la categoría de “calificado”.
-		Cuando un jugador jugo más de 500 partidas, posee más de 3000 puntos y un promedio de 6 o más, pasa a la categoría de “experto”.
-		Cuando un jugador jugo más de 1000 partidas, posee más de 8000 puntos y un promedio de 8 o más, pasa a la categoría de “master”.*/
-		CategoriaEnum cat ;
-		if((this.partidasJugadas>= 1000) & (this.puntos > 8000) & (calcularPromedio() >= 8)){
-			cat = CategoriaEnum.master;
-		}
-		else{
-			if((this.partidasJugadas>= 500) & (this.puntos > 3000) & (calcularPromedio() >= 6)){
-				cat = CategoriaEnum.experto;
-			}
-			else{
-				if((this.partidasJugadas>= 100) & (this.puntos > 500) & (calcularPromedio() >= 5)){
-					cat = CategoriaEnum.calificado;
-				}
-				else{
-					cat = CategoriaEnum.novato;
-				}
-			}
-		}
-		if(!this.categoria.equals(cat)){
-			if(!cat.equals(CategoriaEnum.novato)){
-				this.categoria = cat;
-			}
-		}
-	}
-	public CategoriaEnum obtenerCategoria(){
-		return this.categoria;
-	}
-	private int calcularPromedio(){
-		return (this.puntos/this.partidasJugadas);
-	}
-
 	public int getIdJugador() {
 		return idJugador;
 	}

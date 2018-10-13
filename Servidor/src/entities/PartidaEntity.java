@@ -2,26 +2,27 @@ package entities;
 
 import java.util.List;
 
-import dto.*;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "Partidas")
 public class PartidaEntity {
 	
+	@Id
+	@Column (name = "id_partida", nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idPartida;
+	
+	@OneToMany (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn (name = "id_partida")
 	private List<ChicoEntity> chicos;
-	private PuntosParejaEntity puntosPareja1; 
+	
+	@Transient
+	private PuntosParejaEntity puntosPareja1;
+	
+	@Transient
 	private PuntosParejaEntity puntosPareja2;
 	
-	private void registrarMovimiento(JugadorEntity jugador, MovimientoDTO movimiento){
-		// TODO
-	}
-	private List<MovimientoDTO> obtenerMovimientosPosibles(JugadorDTO jugador){
-		// TODO
-		return null;
-	}
-	private boolean terminoPartida(){
-		// TODO
-		return false;
-	}
 	public int getIdPartida() {
 		return idPartida;
 	}

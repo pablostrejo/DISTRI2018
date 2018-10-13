@@ -1,18 +1,15 @@
 package entities;
+import javax.persistence.*;
 
+import negocio.TipoEnviteEnum;
+
+@Entity
+@DiscriminatorValue("envite")
 public class EnviteEntity extends MovimientoEntity{
 
+	@Column (name = "tipo_envite", columnDefinition = "tinyint")
 	private TipoEnviteEnum tipoEnvite;
 	
-	public int calcularPuntosEnvite() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public boolean sosTipoCarta() {
-		return false;
-	}
-
 	public TipoEnviteEnum getTipoEnvite() {
 		return tipoEnvite;
 	}
