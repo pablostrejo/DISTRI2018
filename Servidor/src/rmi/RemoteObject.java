@@ -18,7 +18,7 @@ public class RemoteObject extends UnicastRemoteObject implements RemoteInterface
 
 	@Override
 	public boolean existeApodoMail(String apodo, String mail) throws RemoteException {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 

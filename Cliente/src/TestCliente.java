@@ -1,6 +1,7 @@
 import java.rmi.Naming;
 import java.util.Scanner;
 
+import delegado.BusinessDelegate;
 import rmi.RemoteInterface;
 
 public class TestCliente {
@@ -96,7 +97,11 @@ public class TestCliente {
         System.out.print("Ingresá tu contraseña: ");
         String password = scanner. nextLine();
         
-        System.out.println(nombre + password);
+        if (new BusinessDelegate().existeApodoMail(nombre, password)) {
+        	//Mensaje de error porque ya existe
+        } else {
+        	// lo registro
+        }
         
 		
 	}	
